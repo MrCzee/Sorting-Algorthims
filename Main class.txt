@@ -1,0 +1,55 @@
+package demo;
+
+import java.util.Random;
+
+public class testapp {
+public static void main(String[] args) {
+	
+	Linkedl list = new Linkedl();
+	
+
+	
+	
+     for(int i = 0; i < 5; i++){
+	   
+     Random random = new Random();
+
+		  int d = random.nextInt(1+5);
+		  
+		  list.InsertData(d);
+		  
+     }
+     
+     
+ 
+   
+     System.out.println("\n\n\nSimple Random Numbers.....");
+     list.printList();
+    
+
+     
+
+
+     
+     
+  
+  	System.out.println("Selection Sort");
+     list.selectionSort(list.head);
+     list.printList();
+     
+
+  	System.out.println("Insertion Sort");
+    list.Inserteed();
+    list.printList();
+ 
+     
+  	System.out.println("Bubble Sort");
+    list.bublee();
+    list.printList(); 
+
+    
+   
+    
+	
+}
+}

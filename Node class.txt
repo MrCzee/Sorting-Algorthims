@@ -1,0 +1,225 @@
+package demo;
+
+import java.util.Random;
+
+import java.util.Scanner;
+import java.util.random.*;
+import demo.linklist.Node;
+import java.util.stream.*;
+import java.math.*;
+import java.time.LocalDate;
+
+public class Linkedl {
+	
+	Node  head;
+	private int size;
+    private static Random generator = new Random();
+    private int numofSwaps = 0;
+    private int numofcompr = 0;
+
+    Linkedl(){
+    	this.size = 0;
+    }
+
+
+	
+	
+	
+ class Node{
+	private int data;
+    private	Node next;
+
+	
+	Node(int data)
+	{
+		this.data = data;
+		this.next = null;
+		size++;
+	}
+	
+}
+ 
+
+ void InsertData(int data){
+		Node newNode = new Node(data);
+		if(head == null) {
+			
+			head = newNode;
+			return;
+		}
+		//size++;
+		newNode.next = head;
+		head = newNode;
+		
+	}
+ 
+ 
+ void selectionSort(Node head)
+ {
+ 	Node values = head;
+
+ 	while (values != null) {
+ 		Node min = values;
+ 		
+ 		Node sec = values.next;
+
+ 		while (sec != null) {
+ 			if (min.data > sec.data)
+ 			{
+ 				
+ 				min = sec;
+ 				numofcompr++;
+ 			}
+ 			
+ 			sec = sec.next;
+ 		}
+
+ 		// Swap Data
+ 		numofSwaps++;
+ 		int x = values.data;
+ 		values.data = min.data;
+ 		min.data = x;
+ 		values = values.next;
+ 	}
+ 	
+
+
+ 	System.out.println("Number of Swaps: "+numofSwaps);
+ 	System.out.println("Number of compression "+numofcompr);
+ }
+
+
+
+
+//.................<Sorting linked list>..............//
+ 
+ 
+ void Inserteed()
+ {
+	 Node first_unsorted , last_Unsorted , current , trailing;
+	 if(head != null) {
+		 last_Unsorted = head;
+		 while(last_Unsorted.next != null)
+		 {
+			 first_unsorted = last_Unsorted.next;
+			 if(first_unsorted.data < head.data)
+			 {
+				 numofcompr++;
+				 last_Unsorted.next = first_unsorted.next;
+				 first_unsorted.next = head;
+				 head = first_unsorted;
+			 }
+			 else {
+				 trailing = head;
+				 current = trailing.next;
+				 
+				 while(first_unsorted.data > current.data)
+				 {
+					 trailing = current;
+					  current = trailing.next;
+				 }
+				 
+				 if(first_unsorted == current)
+				 {
+					 last_Unsorted = first_unsorted;
+				 }
+				 else {
+					 numofSwaps++;
+					 last_Unsorted.next = first_unsorted.next;
+					 first_unsorted.next = current;
+					 trailing.next = first_unsorted;
+							
+						
+				 }
+			 }
+		 }
+		 System.out.println("Number of swaps: "+numofSwaps);
+		 System.out.println("Number of compressions "+numofcompr);
+	 }
+ }
+
+ 
+
+
+void bublee()
+{
+	Node current = head;
+	
+    Node second = current.next;
+    
+
+    while (current != null) 
+    {
+       while (second != null) {
+
+            if (current.data > second.data) 
+            {     
+                int tmp = current.data;
+                current.data = second.data;
+                second.data = tmp;
+                numofSwaps++;
+
+                
+            }
+            second = second.next;
+        }
+        current = current.next;
+        numofcompr++;
+    }
+   
+    System.out.println("\nNumbers of swaps: "+numofSwaps);
+    System.out.println("\nNumbers of compressions: "+numofcompr);
+    
+
+   
+}
+
+
+
+void printList()
+{
+	if(head == null)
+	{
+		System.out.println("Node is Empty");
+		return;
+	}
+	
+	Node curNode = head;
+	
+	while(curNode != null)
+	{
+		System.out.println(" "+curNode.data);
+		curNode = curNode.next;
+	}
+	
+}
+
+void printInsertion()
+{
+	if(head == null)
+	{
+		System.out.println("Node is Empty");
+		return;
+	}
+	
+	Node curNode = head;
+	
+	while(curNode != null)
+	{
+		System.out.println(" "+curNode.data);
+		curNode = curNode.next;
+	}
+	System.out.println();
+	
+}
+
+int size()
+{
+	return size;
+}
+
+
+
+}
+  
+
